@@ -14,6 +14,7 @@ public final class UseCollection {
 	private static final int STOP = 2000;
 	private static final int ELEMS = 100_000;
     private static final int TO_MS = 1_000_000;
+    private static final int READS = 1000;
 	
 
     private UseCollection() {
@@ -88,6 +89,24 @@ public final class UseCollection {
          * LinkedList, using the collections of point 5. In order to measure
          * times, use as example TestPerformance.java.
          */
+    	timeAL = System.nanoTime();
+    	for (int i = 1; i <= READS; i++) {
+            al.get(al.size() / 2);
+        }
+    	timeAL = System.nanoTime() - timeAL;
+    	
+    	timeLL = System.nanoTime();
+    	for (int i = 1; i <= READS; i++) {
+            ll.add(ll.size() / 2);
+        }
+    	timeLL = System.nanoTime() - timeLL;
+    	
+    	System.out.println("Reading " + READS
+                + " elements in the middle of an Array List took " + timeAL
+                + "ns (" + timeAL / TO_MS + "ms)");
+    	System.out.println("Reading " + READS
+                + " elements in the middle of a Linked List took " + timeLL
+                + "ns (" + timeLL / TO_MS + "ms)");
         /*
          * 7) Build a new Map that associates to each continent's name its
          * population:
