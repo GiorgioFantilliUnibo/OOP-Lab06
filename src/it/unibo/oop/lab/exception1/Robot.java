@@ -43,8 +43,8 @@ public class Robot {
      * 
      * @return If the Down movement has been performed
      */
-    public boolean moveDown() {
-        return this.moveToPosition(this.environment.getCurrPosX(), environment.getCurrPosY() - Robot.MOVEMENT_DELTA);
+    public void moveDown() {
+        this.moveToPosition(this.environment.getCurrPosX(), environment.getCurrPosY() - Robot.MOVEMENT_DELTA);
     }
 
     /**
