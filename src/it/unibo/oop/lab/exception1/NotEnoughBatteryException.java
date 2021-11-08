@@ -18,5 +18,14 @@ public class NotEnoughBatteryException extends IllegalStateException {
         this.batteryLeft = batteryLeft;
         this.batteryRequired = batteryRequired;
     }
-
+    
+    /**
+     * 
+     * @return the string representation of instances of this class
+     */
+    @Override
+    public String toString() {
+        return "Not enought battery! Current battery level is "+ this.batteryLeft
+        		+", it is required "+ batteryRequired;
+    }
 }
