@@ -42,6 +42,9 @@ public final class UseCollection {
          * element of the first list. You can not use any "magic number".
          * (Suggestion: use a temporary variable)
          */
+    	final Integer temp = al.get(1); 
+    	al.set(1, al.get(al.size() - 1));
+    	al.set(al.size() - 1, temp);
         /*
          * 4) Using a single for-each, print the contents of the arraylist.
          */
