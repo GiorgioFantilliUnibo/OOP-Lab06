@@ -1,8 +1,10 @@
 package it.unibo.oop.lab.exception1;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -33,15 +35,31 @@ public final class BaseRobotTest {
         /*
          * 2) Move the robot right until it touches the world limit
          */
-        for (int i = 0; i < RobotEnvironment.WORLD_X_UPPER_LIMIT; i++) {
-            // check if position if coherent
-            assertTrue("[CHECKING MOVING RIGHT]", r1.moveRight());
+        try {
+	        for (int i = 0; i < RobotEnvironment.WORLD_X_UPPER_LIMIT; i++) {
+	            r1.moveRight();
+	        }
+        } catch (PositionOutOfBoundException e) {
+        	fail("The robot shouldn't go over the edge here");
+        } catch (NotEnoughBatteryException e) {
+        	fail("The robot shouldn't have any battery issues here");
         }
+        
         // reached the right limit of the world
-        assertFalse("[CHECKING MOVING RIGHT]", r1.moveRight());
+        try {
+        	r1.moveRight();
+        } catch (PositionOutOfBoundException e) {
+        	assertNotNull(e.getMessage());
+            assertFalse(e.getMessage().isEmpty());
+        } catch (NotEnoughBatteryException e) {
+        	fail("The robot shouldn't have any battery issues here");
+        }
+
         // checking positions x=50; y=0
         assertEquals("[MOVING RIGHT ROBOT POS X]", RobotEnvironment.WORLD_X_UPPER_LIMIT, r1.getEnvironment().getCurrPosX());
         assertEquals("[MOVING RIGHT ROBOT POS Y]", 0, r1.getEnvironment().getCurrPosY());
+        
+        
         /*
          * 2) Move to the top until it reaches the upper right conrner of the world
          */
