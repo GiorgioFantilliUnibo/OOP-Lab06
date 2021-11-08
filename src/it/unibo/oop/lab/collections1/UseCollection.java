@@ -56,6 +56,7 @@ public final class UseCollection {
     	for (final Integer e : al) {
     		System.out.print(e +"	");
     	}
+    	System.out.println();
         /*
          * 5) Measure the performance of inserting new elements in the head of
          * the collection: measure the time required to add 100.000 elements as
