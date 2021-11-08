@@ -97,7 +97,7 @@ public final class UseCollection {
     	
     	timeLL = System.nanoTime();
     	for (int i = 1; i <= READS; i++) {
-            ll.add(ll.size() / 2);
+            ll.get(ll.size() / 2);
         }
     	timeLL = System.nanoTime() - timeLL;
     	
