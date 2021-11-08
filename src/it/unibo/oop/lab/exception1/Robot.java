@@ -34,8 +34,8 @@ public class Robot {
      * 
      * @return If the Up movement has been performed
      */
-    public boolean moveUp() {
-        return moveToPosition(environment.getCurrPosX(), this.environment.getCurrPosY() + Robot.MOVEMENT_DELTA);
+    public void moveUp() {
+        moveToPosition(environment.getCurrPosX(), this.environment.getCurrPosY() + Robot.MOVEMENT_DELTA);
     }
 
     /**
