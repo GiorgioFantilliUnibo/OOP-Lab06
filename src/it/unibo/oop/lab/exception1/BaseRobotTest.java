@@ -48,6 +48,7 @@ public final class BaseRobotTest {
         // reached the right limit of the world
         try {
         	r1.moveRight();
+        	fail("shouldn't get here");
         } catch (PositionOutOfBoundException e) {
         	assertNotNull(e.getMessage());
             assertFalse(e.getMessage().isEmpty());
