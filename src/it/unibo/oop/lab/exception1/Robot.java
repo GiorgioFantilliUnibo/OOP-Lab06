@@ -52,9 +52,8 @@ public class Robot {
      * 
      * @return A boolean indicating if the Left movement has been performed
      */
-    public boolean moveLeft() {
-        return this.moveToPosition(this.environment.getCurrPosX() - Robot.MOVEMENT_DELTA,
-                this.environment.getCurrPosY());
+    public void moveLeft() {
+        this.moveToPosition(this.environment.getCurrPosX() - Robot.MOVEMENT_DELTA, this.environment.getCurrPosY());
     }
 
     /**
