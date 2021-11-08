@@ -31,12 +31,14 @@ public final class UseCollection {
     	for (int i = START; i < STOP; i++) {
     		al.add(i);
     	}
+    	System.out.println(al);
         /*
          * 2) Create a new LinkedList<Integer> and, in a single line of code
          * without using any looping construct (for, while), populate it with
          * the same contents of the list of point 1.
          */
     	final List<Integer> ll = new LinkedList<>(al);
+    	System.out.println(ll);
         /*
          * 3) Using "set" and "get" and "size" methods, swap the first and last
          * element of the first list. You can not use any "magic number".
@@ -45,6 +47,7 @@ public final class UseCollection {
     	final Integer temp = al.get(1); 
     	al.set(1, al.get(al.size() - 1));
     	al.set(al.size() - 1, temp);
+    	System.out.println(al);
         /*
          * 4) Using a single for-each, print the contents of the arraylist.
          */
