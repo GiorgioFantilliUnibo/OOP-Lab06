@@ -12,6 +12,8 @@ public final class UseCollection {
 	
 	private static final int START = 1000;
 	private static final int STOP = 2000;
+	private static final int ELEMS = 100_000;
+    private static final int TO_MS = 1_000_000;
 	
 
     private UseCollection() {
@@ -61,6 +63,24 @@ public final class UseCollection {
          * using the previous lists. In order to measure times, use as example
          * TestPerformance.java.
          */
+    	long timeAL = System.nanoTime();
+    	for (int i = 1; i <= ELEMS; i++) {
+            al.add(0, i);
+        }
+    	timeAL = System.nanoTime() - timeAL;
+    	
+    	long timeLL = System.nanoTime();
+    	for (int i = 1; i <= ELEMS; i++) {
+            ll.add(0, i);
+        }
+    	timeLL = System.nanoTime() - timeLL;
+    	
+    	System.out.println("Inserting " + ELEMS
+                + " int in a Array List took " + timeAL
+                + "ns (" + timeAL / TO_MS + "ms)");
+    	System.out.println("Inserting " + ELEMS
+                + " int in a Linked List took " + timeLL
+                + "ns (" + timeLL / TO_MS + "ms)");
         /*
          * 6) Measure the performance of reading 1000 times an element whose
          * position is in the middle of the collection for both ArrayList and
