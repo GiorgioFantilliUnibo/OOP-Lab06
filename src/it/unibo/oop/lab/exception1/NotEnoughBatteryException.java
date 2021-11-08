@@ -28,4 +28,9 @@ public class NotEnoughBatteryException extends IllegalStateException {
         return "Not enought battery! Current battery level is "+ this.batteryLeft
         		+", it is required "+ batteryRequired;
     }
+    
+    @Override
+    public String getMessage() {
+        return this.toString();
+    }
 }
