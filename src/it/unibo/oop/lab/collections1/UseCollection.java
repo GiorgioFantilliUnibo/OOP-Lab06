@@ -14,7 +14,7 @@ public final class UseCollection {
 	private static final int STOP = 2000;
 	private static final int ELEMS = 100_000;
     private static final int TO_MS = 1_000_000;
-    private static final int READS = 1000;
+    private static final int READS = 10_000;
 	
 
     private UseCollection() {
@@ -84,7 +84,7 @@ public final class UseCollection {
                 + " int in a Linked List took " + timeLL
                 + "ns (" + timeLL / TO_MS + "ms)");
         /*
-         * 6) Measure the performance of reading 1000 times an element whose
+         * 6) Measure the performance of reading 10000 times an element whose
          * position is in the middle of the collection for both ArrayList and
          * LinkedList, using the collections of point 5. In order to measure
          * times, use as example TestPerformance.java.
