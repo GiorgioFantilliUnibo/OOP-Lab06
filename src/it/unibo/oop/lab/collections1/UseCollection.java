@@ -143,5 +143,10 @@ public final class UseCollection {
         /*
          * 8) Compute the population of the world
          */
+    	long wordPopulation = 0L;
+    	for (final long e : continent.values()) {
+    		wordPopulation += e;
+    	}
+    	System.out.println("There are "+ wordPopulation +" humans on the planet");
     }
 }
