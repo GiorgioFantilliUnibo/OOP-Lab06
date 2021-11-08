@@ -112,7 +112,15 @@ public final class BaseRobotTest {
         // verify position: same as start position
         assertEquals("[CHECKING ROBOT INIT POS Y]", 0, r2.getEnvironment().getCurrPosY());
         // out of world: returns false
-        assertFalse("[CHECKING MOVING UP]", r2.moveUp());
+        try {
+        	r2.moveUp();
+        	fail("shouldn't get here");
+        } catch (PositionOutOfBoundException e) {
+        	fail("The robot shouldn't have enough battery to try to move");
+        } catch (NotEnoughBatteryException e) {
+        	assertNotNull(e.getMessage());
+            assertFalse(e.getMessage().isEmpty());
+        }
         // recharge battery
         r2.recharge();
         // verify battery level
