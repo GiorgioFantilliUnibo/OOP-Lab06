@@ -2,6 +2,7 @@ package it.unibo.oop.lab.collections2;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -86,6 +87,15 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
 
     @Override
     public boolean addFollowedUser(final String circle, final U user) {
+    	Set<U> usersGroup = this.followedUser.get(circle);
+    	
+    	if (usersGroup != null) {
+    		return usersGroup.add(user);
+    	} else {
+    		usersGroup = new HashSet<>();
+    		this.followedUser.put(circle, usersGroup);
+    		usersGroup.add(user);
+    	}
         return false;
     }
 
