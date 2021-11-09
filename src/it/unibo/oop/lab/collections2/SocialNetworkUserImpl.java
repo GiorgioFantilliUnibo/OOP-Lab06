@@ -88,15 +88,11 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
     @Override
     public boolean addFollowedUser(final String circle, final U user) {
     	Set<U> usersGroup = this.followedUser.get(circle);
-    	
-    	if (usersGroup != null) {
-    		return usersGroup.add(user);
-    	} else {
+    	if (usersGroup == null) {
     		usersGroup = new HashSet<>();
     		this.followedUser.put(circle, usersGroup);
-    		usersGroup.add(user);
     	}
-        return false;
+    	return usersGroup.add(user);
     }
 
     @Override
