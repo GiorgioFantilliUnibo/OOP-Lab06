@@ -105,9 +105,7 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
     public List<U> getFollowedUsers() {
     	final List<U> users = new ArrayList<>();
     	for (final Collection<U> set : this.followedUser.values()) {
-    		for (final U user : set) {
-    			users.add(user);
-    		}
+    		users.addAll(set);
     	}
         return users;
     }
