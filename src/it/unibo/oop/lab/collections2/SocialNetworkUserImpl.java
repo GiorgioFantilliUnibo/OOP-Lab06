@@ -2,6 +2,7 @@ package it.unibo.oop.lab.collections2;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -98,7 +99,8 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
 
     @Override
     public Collection<U> getFollowedUsersInGroup(final String groupName) {
-    	return this.followedUser.get(groupName);
+    	final Collection<U> users = this.followedUser.get(groupName);
+    	return users != null ? users : Collections.emptyList();
     }
 
     @Override
