@@ -59,6 +59,23 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
     public SocialNetworkUserImpl(final String name, final String surname, final String user, final int userAge) {
         super(name, surname, user, userAge);
     }
+    
+    /**
+     * Builds a new {@link SocialNetworkUserImpl}.
+     * 
+     * @param name
+     *            the user firstname
+     * @param surname
+     *            the user lastname
+     * @param userAge
+     *            user's age
+     * @param user
+     *            alias of the user, i.e. the way a user is identified on an
+     *            application
+     */
+    public SocialNetworkUserImpl(final String name, final String surname, final String user) {
+        super(name, surname, user, -1);
+    }
 
     /*
      * [METHODS]
