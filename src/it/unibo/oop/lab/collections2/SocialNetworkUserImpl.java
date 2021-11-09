@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * 
@@ -31,7 +32,7 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
      * 
      * think of what type of keys and values would best suit the requirements
      */
-	final Map<U, String> followedUser = new HashMap<>();
+	final Map<String, Set<U>> followedUser = new HashMap<>();
     /*
      * [CONSTRUCTORS]
      * 
