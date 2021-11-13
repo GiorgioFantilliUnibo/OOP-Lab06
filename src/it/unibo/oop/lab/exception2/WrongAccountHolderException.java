@@ -10,4 +10,9 @@ public class WrongAccountHolderException extends IllegalArgumentException {
 		this.message = message;
 	}
 
+	@Override
+	public String toString() {
+		return message == null ? "" : "WrongAccountHolderException [message=" + message + "]";
+	}
+	
 }
