@@ -7,14 +7,15 @@ package it.unibo.oop.lab.exception2;
  * 
  */
 public class StrictBankAccount implements BankAccount {
+	
+	private static final double ATM_TRANSACTION_FEE = 1;
+    private static final double MANAGEMENT_FEE = 5;
+    private static final double TRANSACTION_FEE = 0.1;
 
     private final int usrID;
     private double balance;
     private int totalTransactionCount;
     private final int maximumAllowedATMTransactions;
-    private static final double ATM_TRANSACTION_FEE = 1;
-    private static final double MANAGEMENT_FEE = 5;
-    private static final double TRANSACTION_FEE = 0.1;
 
     /**
      * 
