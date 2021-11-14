@@ -146,4 +146,10 @@ public class StrictBankAccount implements BankAccount {
     private void increaseTransactionsCount() {
         totalTransactionCount++;
     }
+    
+    private void checkTransactionsQuota() {
+    	if (!(totalTransactionCount < maximumAllowedATMTransactions)) {
+    		throw new TransactionsOverQuotaException();
+        }
+    }
 }
