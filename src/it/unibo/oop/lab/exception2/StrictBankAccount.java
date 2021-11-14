@@ -34,7 +34,12 @@ public class StrictBankAccount implements BankAccount {
 
     /**
      * 
-     * {@inheritDoc}
+     * @param usrID
+     *            id of the user requesting this operation
+     * @param amount
+     *            amount to be credited
+     * @throws WrongAccountHolderException
+     *             if an unauthorized account tries to deposit
      */
     public void deposit(final int usrID, final double amount) {
     	checkUser(usrID);
@@ -44,8 +49,12 @@ public class StrictBankAccount implements BankAccount {
     }
 
     /**
-     * 
-     * {@inheritDoc}
+     * @param usrID
+     *            id of the user requesting this operation
+     * @param amount
+     *            amount to be withdrawn
+     * @throws WrongAccountHolderException
+     *             if an unauthorized account tries to withdraw
      */
     public void withdraw(final int usrID, final double amount) {
     	checkUser(usrID);
@@ -57,7 +66,12 @@ public class StrictBankAccount implements BankAccount {
 
     /**
      * 
-     * {@inheritDoc}
+     * @param usrID
+     *            id of the user requesting this opera
+     * @param amount
+     *            amount to be deposited via ATM
+     * @throws WrongAccountHolderException
+     *             if an unauthorized account tries to deposit from an ATM
      */
     public void depositFromATM(final int usrID, final double amount) {
         if (totalTransactionCount < maximumAllowedATMTransactions) {
