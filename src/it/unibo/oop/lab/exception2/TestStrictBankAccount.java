@@ -38,6 +38,7 @@ public final class TestStrictBankAccount {
     	 * 
     	 * This instruction throw a WrongAccountHolderException as a mismatched user ID is passed
     	 */
+    	System.out.println("WrongAccountHolderException test");
     	try {
     		account1.deposit(usr2.getUserID(), 100.0);
     		fail("You shouldn't be here: indicated user incorrect");
@@ -52,6 +53,9 @@ public final class TestStrictBankAccount {
     	 * 
     	 * This instruction throw a WrongAccountHolderException as a mismatched user ID is passed
     	 */
+    	System.out.println();
+    	System.out.println();
+    	System.out.println("NotEnoughFoundsException test");
     	try {
     		for (int i = 0; i < MAX_ATM_TRANSACTIONS; i++) {
     			account2.withdrawFromATM(usr2.getUserID(), 1000);
