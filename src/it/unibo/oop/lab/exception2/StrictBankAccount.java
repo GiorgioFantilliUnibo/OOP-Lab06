@@ -74,6 +74,8 @@ public class StrictBankAccount implements BankAccount {
      *            amount to be deposited via ATM
      * @throws WrongAccountHolderException
      *             if an unauthorized account tries to deposit from an ATM
+     * @throws TransactionsOverQuotaException
+     *              if the count of total transactions gets over the maximum allowed
      */
     public void depositFromATM(final int usrID, final double amount) {
     	checkTransactionsQuota();
@@ -89,6 +91,8 @@ public class StrictBankAccount implements BankAccount {
      *             if an unauthorized account tries to withdraw
      * @throws NotEnoughFoundsException
      *             if there is not enough founds for a draw operation to complete
+     * @throws TransactionsOverQuotaException
+     *              if the count of total transactions gets over the maximum allowed
      */
     public void withdrawFromATM(final int usrID, final double amount) {
     	checkTransactionsQuota();
