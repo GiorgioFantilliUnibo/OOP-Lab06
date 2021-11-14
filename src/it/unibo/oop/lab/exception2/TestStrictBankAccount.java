@@ -88,10 +88,21 @@ public final class TestStrictBankAccount {
     	} catch (NotEnoughFoundsException e) {
     		fail("You shouldn't be here: there are enought founds");
     	} catch (TransactionsOverQuotaException e) {
+    		fail("You shouldn't be here: there are enought transation left");
+    	}
+    		
+    	try {
+    		account2.withdrawFromATM(usr2.getUserID(), 1);
+    	} catch (WrongAccountHolderException e) {
+    		fail("You shouldn't be here: indicated user correct");
+    	} catch (NotEnoughFoundsException e) {
+    		fail("You shouldn't be here: there are enought founds");
+    	} catch (TransactionsOverQuotaException e) {
     		assertNotNull(e);
     		System.out.println(e);
     		System.out.println("There are not other transation left: "+
     							(account2.getTransactionCount() == MAX_ATM_TRANSACTIONS));
     	}
+
     }
 }
