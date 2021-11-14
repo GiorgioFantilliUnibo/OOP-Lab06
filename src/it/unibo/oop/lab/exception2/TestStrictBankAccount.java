@@ -51,7 +51,8 @@ public final class TestStrictBankAccount {
     	/* 
     	 * NotEnoughFoundsException test
     	 * 
-    	 * This instruction throw a WrongAccountHolderException as a mismatched user ID is passed
+    	 * This instruction throw a NotEnoughFoundsException as as the funds
+    	 * to be withdrawn are more than those available
     	 */
     	System.out.println();
     	System.out.println();
