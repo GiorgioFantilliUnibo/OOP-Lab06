@@ -1,7 +1,6 @@
 package it.unibo.oop.lab.exception2;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 /**
@@ -46,6 +45,36 @@ public final class TestStrictBankAccount {
     		assertNotNull(e);
     		System.out.println(e);
     		System.out.println(account1.getBalance());
+    	}
+    	
+    	/* 
+    	 * NotEnoughFoundsException test
+    	 * 
+    	 * This instruction throw a WrongAccountHolderException as a mismatched user ID is passed
+    	 */
+    	try {
+    		for (int i = 0; i < MAX_ATM_TRANSACTIONS; i++) {
+    			account2.withdrawFromATM(usr2.getUserID(), 1000);
+    		}
+    	} catch (WrongAccountHolderException e) {
+    		fail("You shouldn't be here: indicated user correct");
+    	} catch (NotEnoughFoundsException e) {
+    		fail("You shouldn't be here: there are enought founds");
+    	} catch (TransactionsOverQuotaException e) {
+    		fail("You shouldn't be here: there are enought left transactions");
+    	}
+    	
+    	try {
+    		account2.withdraw(usr2.getUserID(), 1);
+    		fail("You shouldn't be here: no more founds");
+    	} catch (WrongAccountHolderException e) {
+    		fail("You shouldn't be here: indicated user correct");
+    	} catch (NotEnoughFoundsException e) {
+    		assertNotNull(e);
+    		System.out.println(e);
+    		System.out.println(account1.getBalance());
+    	} catch (TransactionsOverQuotaException e) {
+    		fail("You shouldn't be here: this transaction should be always available");
     	}
     }
 }
