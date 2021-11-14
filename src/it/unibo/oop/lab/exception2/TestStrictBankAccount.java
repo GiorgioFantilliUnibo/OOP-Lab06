@@ -8,7 +8,9 @@ import org.junit.Test;
  * 
  */
 public final class TestStrictBankAccount {
-
+	
+	private static final int MAX_ATM_TRANSACTIONS = 10;
+	private static final double INITIAL_BALANCE = 10000;
     /**
      * Used to test Exceptions on {@link StrictBankAccount}.
      */
@@ -26,8 +28,9 @@ public final class TestStrictBankAccount {
     	final AccountHolder usr1 = new AccountHolder("Giorgio", "Fantilli", 1);
     	final AccountHolder usr2 = new AccountHolder("Mario", "Rossi", 2);
     	
-    	final BankAccount account1 = new StrictBankAccount(usr1.getUserID(), 10000, 10);
-    	final BankAccount account2 = new StrictBankAccount(usr2.getUserID(), 10000, 10);
+    	final BankAccount account1 = new StrictBankAccount(usr1.getUserID(), INITIAL_BALANCE, MAX_ATM_TRANSACTIONS);
+    	final BankAccount account2 = new StrictBankAccount(usr2.getUserID(), INITIAL_BALANCE, MAX_ATM_TRANSACTIONS);
+    	
     	
     }
 }
