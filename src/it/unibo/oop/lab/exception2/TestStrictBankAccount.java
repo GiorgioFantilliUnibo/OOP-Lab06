@@ -23,5 +23,11 @@ public final class TestStrictBankAccount {
          * presenza di un id utente errato, oppure al superamento del numero di
          * operazioni ATM gratuite.
          */
+    	final AccountHolder usr1 = new AccountHolder("Giorgio", "Fantilli", 1);
+    	final AccountHolder usr2 = new AccountHolder("Mario", "Rossi", 2);
+    	
+    	final BankAccount account1 = new StrictBankAccount(usr1.getUserID(), 10000, 10);
+    	final BankAccount account2 = new StrictBankAccount(usr2.getUserID(), 10000, 10);
+    	
     }
 }
