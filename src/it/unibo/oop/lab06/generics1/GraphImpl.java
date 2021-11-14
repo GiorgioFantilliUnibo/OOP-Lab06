@@ -18,19 +18,19 @@ public class GraphImpl<N> implements Graph<N> {
 	}
 
 	@Override
-	public Set nodeSet() {
+	public Set<N> nodeSet() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Set linkedNodes(Object node) {
+	public Set<N> linkedNodes(Object node) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List getPath(Object source, Object target) {
+	public List<N> getPath(Object source, Object target) {
 		// TODO Auto-generated method stub
 		return null;
 	}
