@@ -76,9 +76,8 @@ public class StrictBankAccount implements BankAccount {
      *             if an unauthorized account tries to deposit from an ATM
      */
     public void depositFromATM(final int usrID, final double amount) {
-        if (totalTransactionCount < maximumAllowedATMTransactions) {
-            this.deposit(usrID, amount - StrictBankAccount.ATM_TRANSACTION_FEE);
-        }
+    	checkTransactionsQuota();
+        this.deposit(usrID, amount - StrictBankAccount.ATM_TRANSACTION_FEE);
     }
 
     /**
@@ -92,9 +91,8 @@ public class StrictBankAccount implements BankAccount {
      *             if there is not enough founds for a draw operation to complete
      */
     public void withdrawFromATM(final int usrID, final double amount) {
-        if (totalTransactionCount < maximumAllowedATMTransactions) {
-            this.withdraw(usrID, amount + StrictBankAccount.ATM_TRANSACTION_FEE);
-        }
+    	checkTransactionsQuota();
+        this.withdraw(usrID, amount + StrictBankAccount.ATM_TRANSACTION_FEE);
     }
 
     /**
