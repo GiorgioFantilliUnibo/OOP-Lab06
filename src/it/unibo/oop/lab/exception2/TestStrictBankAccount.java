@@ -57,19 +57,7 @@ public final class TestStrictBankAccount {
     	System.out.println();
     	System.out.println("NotEnoughFoundsException test");
     	try {
-    		for (int i = 0; i < MAX_ATM_TRANSACTIONS; i++) {
-    			account2.withdrawFromATM(usr2.getUserID(), 1000);
-    		}
-    	} catch (WrongAccountHolderException e) {
-    		fail("You shouldn't be here: indicated user correct");
-    	} catch (NotEnoughFoundsException e) {
-    		fail("You shouldn't be here: there are enought founds");
-    	} catch (TransactionsOverQuotaException e) {
-    		fail("You shouldn't be here: there are enought left transactions");
-    	}
-    	
-    	try {
-    		account2.withdraw(usr2.getUserID(), 1);
+    		account2.withdraw(usr2.getUserID(), 100000);
     		fail("You shouldn't be here: no more founds");
     	} catch (WrongAccountHolderException e) {
     		fail("You shouldn't be here: indicated user correct");
@@ -80,5 +68,17 @@ public final class TestStrictBankAccount {
     	} catch (TransactionsOverQuotaException e) {
     		fail("You shouldn't be here: this transaction should be always available");
     	}
+    	
+//    	try {
+//    		for (int i = 0; i < MAX_ATM_TRANSACTIONS; i++) {
+//    			account2.withdrawFromATM(usr2.getUserID(), 1000);
+//    		}
+//    	} catch (WrongAccountHolderException e) {
+//    		fail("You shouldn't be here: indicated user correct");
+//    	} catch (NotEnoughFoundsException e) {
+//    		fail("You shouldn't be here: there are enought founds");
+//    	} catch (TransactionsOverQuotaException e) {
+//    		fail("You shouldn't be here: there are enought left transactions");
+//    	}
     }
 }
