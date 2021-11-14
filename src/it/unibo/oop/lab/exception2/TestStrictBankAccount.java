@@ -65,7 +65,7 @@ public final class TestStrictBankAccount {
     	} catch (NotEnoughFoundsException e) {
     		assertNotNull(e);
     		System.out.println(e);
-    		System.out.println(account1.getBalance());
+    		System.out.println(account2.getBalance());
     	} catch (TransactionsOverQuotaException e) {
     		fail("You shouldn't be here: this transaction should be always available");
     	}
