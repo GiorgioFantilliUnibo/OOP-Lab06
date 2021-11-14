@@ -125,8 +125,10 @@ public class StrictBankAccount implements BankAccount {
     	}
     }
 
-    private boolean isWithdrawAllowed(final double amount) {
-        return balance > amount;
+    private void isWithdrawAllowed(final double amount) {
+        if (!(balance > amount)) {
+        	throw new NotEnoughFoundsException();
+        }
     }
 
     private void increaseTransactionsCount() {
