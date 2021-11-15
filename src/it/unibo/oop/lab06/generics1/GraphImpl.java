@@ -66,11 +66,37 @@ public class GraphImpl<N> implements Graph<N> {
 	 * {@inheritDocg}
 	 */
 	@Override
-	public List<N> getPath(final N source, final N target) {
+	public List<N> getPath(final N source, N target) {
 		nodesExist(source, target);
 		
+		final BFS<N> bfsSupport = new BFS<N>(source);
+		final Queue<N> nodesQueue = new LinkedList<>();
+		N u;
 		
-		return null;
+		nodesQueue.add(source);
+		while ((u = nodesQueue.poll()) != null) {
+			for (final N v : this.nodes.get(u)) {
+				if (bfsSupport.getNodeState(v) == Color.WHITE) {
+					bfsSupport.setNodeState(v, Color.GREY);
+					bfsSupport.setNodeDistance(v, bfsSupport.getNodeDistance(u)+1);
+					bfsSupport.setNodeParent(v, u);
+					nodesQueue.add(v);
+				}
+			}
+			bfsSupport.setNodeState(u, Color.BLACK);
+		}
+		
+		if (bfsSupport.getNodeParent(target) == null) {
+			return Collections.emptyList();
+		} else {
+			final List<N> path = new LinkedList<>();			
+			do {
+				path.add(target);
+				target = bfsSupport.getNodeParent(target);
+			} while (target != null);
+			Collections.reverse(path);
+			return path;
+		}
 	}
 	
 	@SafeVarargs
@@ -160,7 +186,7 @@ public class GraphImpl<N> implements Graph<N> {
 		/**
 		 * @return the parent of the passed node
 		 */
-		public N getParent(final N node) {
+		public N getNodeParent(final N node) {
 			return this.parent.get(node);
 		}
 
@@ -170,7 +196,7 @@ public class GraphImpl<N> implements Graph<N> {
 		 * @param node
 		 * 			node to set
 		 */
-		public void setParent(final N node, final N parent) {
+		public void setNodeParent(final N node, final N parent) {
 			this.parent.put(node, parent);
 		}
 		
