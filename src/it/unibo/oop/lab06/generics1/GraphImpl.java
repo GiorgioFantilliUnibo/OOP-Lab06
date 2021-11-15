@@ -50,9 +50,9 @@ public class GraphImpl<N> implements Graph<N> {
 	 * {@inheritDocg}
 	 */
 	@Override
-	public Set<N> linkedNodes(Object node) {
-		// TODO Auto-generated method stub
-		return null;
+	public Set<N> linkedNodes(final N node) {
+		nodesExist(node);
+		return new HashSet<N>(nodes.get(node));
 	}
 
 	/**
