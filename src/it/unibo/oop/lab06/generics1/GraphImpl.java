@@ -43,8 +43,7 @@ public class GraphImpl<N> implements Graph<N> {
 	 */
 	@Override
 	public Set<N> nodeSet() {
-		// TODO Auto-generated method stub
-		return null;
+		return new HashSet<N>(nodes.keySet());
 	}
 
 	/**
