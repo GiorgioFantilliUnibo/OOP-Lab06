@@ -81,6 +81,10 @@ public class GraphImpl<N> implements Graph<N> {
 		}
 	}
 	
+	private int nNodes() {
+		return nodes.size();
+	}
+	
 	/**
 	 * Statement of the nodes during the BFS search
 	 */
