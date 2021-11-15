@@ -3,6 +3,9 @@ package it.unibo.oop.lab06.generics1;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * {@inheritDocg}
+ */
 public class GraphImpl<N> implements Graph<N> {
 
 	/**
