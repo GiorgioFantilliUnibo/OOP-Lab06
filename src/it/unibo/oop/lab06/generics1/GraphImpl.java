@@ -91,12 +91,17 @@ public class GraphImpl<N> implements Graph<N> {
 	/**
 	 * Temporary support structure for the BFS search
 	 */
-	private class BFS {
+	private class BFS<N> {
 		
 		private Color[] nodesState;
 		private int[] distance;
-		private N[] parent;
+		private Vector<N> parent;
 		
 		
+		public BFS(final int n) {
+			this.nodesState = new Color[n];
+			this.distance = new int[n];
+			this.parent = new Vector(n);
+		}
 	}
 }
