@@ -24,9 +24,12 @@ public class GraphImpl<N> implements Graph<N> {
 	 * {@inheritDocg}
 	 */
 	@Override
-	public void addEdge(Object source, Object target) {
-		// TODO Auto-generated method stub
-		
+	public void addEdge(final N source, final N target) {
+		if (source != null && target != null) {
+			nodesExist(source, target);
+			
+			nodes.get(source).add(target);
+		}
 	}
 
 	/**
