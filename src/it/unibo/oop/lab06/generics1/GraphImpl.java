@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class GraphImpl<N> implements Graph<N> {
 
-	private final Map<N, Set<N>> nodes = new HashMap<>();
+	private final Map<N,Set<N>> nodes = new HashMap<>();
 	
 	/**
 	 * {@inheritDocg}
@@ -97,18 +97,29 @@ public class GraphImpl<N> implements Graph<N> {
 	 */
 	private class BFS<N> {
 		
-		private Map<N, Color> nodesState;
-		private Map<N, Integer> distance;
-		private Map<N, N> parent;
+		private Map<N,Color> nodesState;
+		private Map<N,Integer> distance;
+		private Map<N,N> parent;
 		
 		/**
-		 * @param n
-		 * 		   number of nodes in the graph
+		 * inizialize BFS structor
+		 * 
+		 * @param source
+		 * 			 initial node of the BFS
 		 */
-		public BFS(final int n) {
-			this.nodesState = new Color[n];
-			this.distance = new int[n];
-			this.parent = new Vector(n);
+		@SuppressWarnings("unchecked")
+		public BFS(final N source) {
+			for (N node : (Set<N>)GraphImpl.this.nodes.keySet()) {
+				if (!node.equals(source)) {
+					this.nodesState.put(node, GraphImpl.Color.WHITE);
+					this.distance.put(node, -1);
+					this.parent.put(node, null);
+				}
+			}
+			
+			this.nodesState.put(source, GraphImpl.Color.GREY);
+			this.distance.put(source, 0);
+			this.parent.put(source, null);
 		}
 		
 	}
