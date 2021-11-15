@@ -52,6 +52,7 @@ public class GraphImpl<N> implements Graph<N> {
      * @param node
      *            the node
      * @return all the nodes directly targeted from the passed node
+     * 
      * @throws IllegalArgumentException
      * 			  if node do not exist in the graph
      */
@@ -122,6 +123,12 @@ public class GraphImpl<N> implements Graph<N> {
 			this.parent.put(source, null);
 		}
 		
+		/**
+		 * @return color state of the passed node
+		 * 
+		 * @param node
+		 * 			 node whose status you want to get
+		 */
 		public Color getNodeState(final N node) {
 			return this.nodesState.get(node);
 		}
