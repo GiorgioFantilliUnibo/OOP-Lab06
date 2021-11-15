@@ -125,12 +125,54 @@ public class GraphImpl<N> implements Graph<N> {
 		
 		/**
 		 * @return color state of the passed node
-		 * 
-		 * @param node
-		 * 			 node whose status you want to get
 		 */
 		public Color getNodeState(final N node) {
 			return this.nodesState.get(node);
 		}
+
+		/**
+		 * @param node
+		 * 			node whose status is to be set
+		 * @param state
+		 * 			state to set
+		 */
+		public void setNodeState(final N node, final Color state) {
+			this.nodesState.put(node, state);
+		}
+
+		/**
+		 * @return the distance between the node and the source
+		 */
+		public int getNodeDistance(final N node) {
+			return this.distance.get(node);
+		}
+
+		/**
+		 * @param distance
+		 * 			the distance to set
+		 * @param node
+		 * 			node whose distance is to be set
+		 */
+		public void setNodeDistance(final N node, final int distance) {
+			this.distance.put(node, distance);
+		}
+
+		/**
+		 * @return the parent of the passed node
+		 */
+		public N getParent(final N node) {
+			return this.parent.get(node);
+		}
+
+		/**
+		 * @param parent
+		 * 			the parent of the passed node
+		 * @param node
+		 * 			node to set
+		 */
+		public void setParent(final N node, final N parent) {
+			this.parent.put(node, parent);
+		}
+		
 	}
 }
