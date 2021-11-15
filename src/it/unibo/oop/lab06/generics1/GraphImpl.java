@@ -102,7 +102,7 @@ public class GraphImpl<N> implements Graph<N> {
 		private Map<N,N> parent;
 		
 		/**
-		 * inizialize BFS structor
+		 * Inizialize BFS structor
 		 * 
 		 * @param source
 		 * 			 initial node of the BFS
@@ -122,5 +122,8 @@ public class GraphImpl<N> implements Graph<N> {
 			this.parent.put(source, null);
 		}
 		
+		public Color getNodeState(final N node) {
+			return this.nodesState.get(node);
+		}
 	}
 }
