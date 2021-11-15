@@ -47,8 +47,14 @@ public class GraphImpl<N> implements Graph<N> {
 	}
 
 	/**
-	 * {@inheritDocg}
-	 */
+     * Returns all the nodes directly targeted from a node.
+     * 
+     * @param node
+     *            the node
+     * @return all the nodes directly targeted from the passed node
+     * @throws IllegalArgumentException
+     * 			  if node do not exist in the graph
+     */
 	@Override
 	public Set<N> linkedNodes(final N node) {
 		nodesExist(node);
