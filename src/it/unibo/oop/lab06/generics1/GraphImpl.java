@@ -1,13 +1,15 @@
 package it.unibo.oop.lab06.generics1;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 
 /**
  * {@inheritDocg}
  */
 public class GraphImpl<N> implements Graph<N> {
 
+	private final Map<N, Set<N>> nodes = new HashMap<>();
+	
 	/**
 	 * {@inheritDocg}
 	 */
