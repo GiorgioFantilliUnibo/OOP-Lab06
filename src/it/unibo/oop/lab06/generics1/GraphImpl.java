@@ -93,7 +93,7 @@ public class GraphImpl<N> implements Graph<N> {
 	}
 	
 	/**
-	 * Temporary support structure for the BFS search
+	 * Temporary support class for the BFS search
 	 */
 	private class BFS<N> {
 		
