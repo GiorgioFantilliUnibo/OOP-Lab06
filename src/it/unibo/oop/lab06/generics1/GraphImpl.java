@@ -93,5 +93,10 @@ public class GraphImpl<N> implements Graph<N> {
 	 */
 	private class BFS {
 		
+		private Color[] nodesState;
+		private int[] distance;
+		private N[] parent;
+		
+		
 	}
 }
