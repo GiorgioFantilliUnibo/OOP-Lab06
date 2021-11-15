@@ -97,9 +97,9 @@ public class GraphImpl<N> implements Graph<N> {
 	 */
 	private class BFS<N> {
 		
-		private Color[] nodesState;
-		private int[] distance;
-		private Vector<N> parent;
+		private Map<N, Color> nodesState;
+		private Map<N, Integer> distance;
+		private Map<N, N> parent;
 		
 		/**
 		 * @param n
@@ -110,5 +110,6 @@ public class GraphImpl<N> implements Graph<N> {
 			this.distance = new int[n];
 			this.parent = new Vector(n);
 		}
+		
 	}
 }
