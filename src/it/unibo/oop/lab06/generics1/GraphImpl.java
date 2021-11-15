@@ -70,6 +70,7 @@ public class GraphImpl<N> implements Graph<N> {
 		return null;
 	}
 	
+	@SafeVarargs
 	private void nodesExist(final N ... argNodes) {
 		for (N node : argNodes) {
 			if (!nodes.containsKey(node)) {
