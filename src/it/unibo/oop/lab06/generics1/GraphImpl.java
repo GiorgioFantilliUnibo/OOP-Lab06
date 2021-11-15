@@ -97,7 +97,10 @@ public class GraphImpl<N> implements Graph<N> {
 		private int[] distance;
 		private Vector<N> parent;
 		
-		
+		/**
+		 * @param n
+		 * 		   number of nodes in the graph
+		 */
 		public BFS(final int n) {
 			this.nodesState = new Color[n];
 			this.distance = new int[n];
