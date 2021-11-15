@@ -81,6 +81,10 @@ public class GraphImpl<N> implements Graph<N> {
 		}
 	}
 	
+	/**
+	 * 
+	 * Statement of the nodes during the BFS search
+	 */
 	private enum Color {
 		WHITE, GREY, BLACK;
 	}
