@@ -58,5 +58,12 @@ public class GraphImpl<N> implements Graph<N> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	private void nodesExist(final N ... argNodes) {
+		for (N node : argNodes) {
+			if (!nodes.containsKey(node)) {
+				throw new IllegalArgumentException("Node ["+ node +"] does not exist in the graph");
+			}
+		}
+	}
 }
