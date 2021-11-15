@@ -65,8 +65,10 @@ public class GraphImpl<N> implements Graph<N> {
 	 * {@inheritDocg}
 	 */
 	@Override
-	public List<N> getPath(Object source, Object target) {
-		// TODO Auto-generated method stub
+	public List<N> getPath(final N source, final N target) {
+		nodesExist(source, target);
+		
+		
 		return null;
 	}
 	
@@ -77,5 +79,13 @@ public class GraphImpl<N> implements Graph<N> {
 				throw new IllegalArgumentException("Node ["+ node +"] does not exist in the graph");
 			}
 		}
+	}
+	
+	private enum Color {
+		WHITE, GREY, BLACK;
+	}
+	
+	private class BFS {
+		
 	}
 }
