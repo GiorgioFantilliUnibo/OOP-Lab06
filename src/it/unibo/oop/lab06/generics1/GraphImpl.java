@@ -14,9 +14,10 @@ public class GraphImpl<N> implements Graph<N> {
 	 * {@inheritDocg}
 	 */
 	@Override
-	public void addNode(Object node) {
-		// TODO Auto-generated method stub
-		
+	public void addNode(final N node) {
+		if (node != null) {
+			nodes.putIfAbsent(node, new HashSet<N>());
+		}
 	}
 
 	/**
