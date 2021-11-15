@@ -21,13 +21,19 @@ public class GraphImpl<N> implements Graph<N> {
 	}
 
 	/**
-	 * {@inheritDocg}
-	 */
+     * Adds an edge: nothing happens if source or target are null.
+     * 
+     * @param source
+     *            starting node
+     * @param target
+     *            ending node
+     * @throws IllegalArgumentException
+     * 			  if source or target does not exist in the graph
+     */
 	@Override
 	public void addEdge(final N source, final N target) {
 		if (source != null && target != null) {
 			nodesExist(source, target);
-			
 			nodes.get(source).add(target);
 		}
 	}
