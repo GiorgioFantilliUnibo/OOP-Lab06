@@ -124,9 +124,9 @@ public class GraphImpl<N> implements Graph<N> {
 	 */
 	private class BFS<N> {
 		
-		private Map<N,Color> nodesState;
-		private Map<N,Integer> distance;
-		private Map<N,N> parent;
+		private Map<N,Color> nodesState = new HashMap<>();
+		private Map<N,Integer> distance = new HashMap<>();
+		private Map<N,N> parent = new HashMap<>();
 		
 		/**
 		 * Inizialize BFS structor
