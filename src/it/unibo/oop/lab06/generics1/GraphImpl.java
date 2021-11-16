@@ -68,23 +68,9 @@ public class GraphImpl<N> implements Graph<N> {
 	@Override
 	public List<N> getPath(final N source, N target) {
 		nodesExist(source, target);
-		
+
 		final BFS<N> bfsSupport = new BFS<N>(source);
-		final Queue<N> nodesQueue = new LinkedList<>();
-		N u;
-		
-		nodesQueue.add(source);
-		while ((u = nodesQueue.poll()) != null) {
-			for (final N v : this.nodes.get(u)) {
-				if (bfsSupport.getNodeState(v) == Color.WHITE) {
-					bfsSupport.setNodeState(v, Color.GREY);
-					bfsSupport.setNodeDistance(v, bfsSupport.getNodeDistance(u)+1);
-					bfsSupport.setNodeParent(v, u);
-					nodesQueue.add(v);
-				}
-			}
-			bfsSupport.setNodeState(u, Color.BLACK);
-		}
+		BFSVisit(bfsSupport, source);
 		
 		if (bfsSupport.getNodeParent(target) == null) {
 			return Collections.emptyList();
@@ -104,6 +90,24 @@ public class GraphImpl<N> implements Graph<N> {
 			if (!nodes.containsKey(node)) {
 				throw new IllegalArgumentException("Node ["+ node +"] does not exist in the graph");
 			}
+		}
+	}
+	
+	private void BFSVisit(final BFS<N> bfsSupport, final N source) {
+		final Queue<N> nodesQueue = new LinkedList<>();
+		N u;
+		
+		nodesQueue.add(source);
+		while ((u = nodesQueue.poll()) != null) {
+			for (final N v : this.nodes.get(u)) {
+				if (bfsSupport.getNodeState(v) == Color.WHITE) {
+					bfsSupport.setNodeState(v, Color.GREY);
+					bfsSupport.setNodeDistance(v, bfsSupport.getNodeDistance(u)+1);
+					bfsSupport.setNodeParent(v, u);
+					nodesQueue.add(v);
+				}
+			}
+			bfsSupport.setNodeState(u, Color.BLACK);
 		}
 	}
 	
