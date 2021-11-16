@@ -66,22 +66,12 @@ public class GraphImpl<N> implements Graph<N> {
 	 * {@inheritDocg}
 	 */
 	@Override
-	public List<N> getPath(final N source, N target) {
+	public List<N> getPath(final N source, final N target) {
 		nodesExist(source, target);
 
 		final BFS<N> bfsSupport = new BFS<N>(source);
 		BFSVisit(bfsSupport, source);
-		
-		if (bfsSupport.getNodeParent(target) == null) {
-			return Collections.emptyList();
-		} else {
-			final List<N> path = new LinkedList<>();			
-			do {
-				path.add(0, target);
-				target = bfsSupport.getNodeParent(target);
-			} while (target != null);
-			return path;
-		}
+		return makePath(bfsSupport, target);
 	}
 	
 	@SafeVarargs
@@ -108,6 +98,20 @@ public class GraphImpl<N> implements Graph<N> {
 				}
 			}
 			bfsSupport.setNodeState(u, Color.BLACK);
+		}
+	}
+	
+	private List<N> makePath(final BFS<N> bfsSupport, final N target) {
+		N node = target;
+		if (bfsSupport.getNodeParent(target) == null) {
+			return Collections.emptyList();
+		} else {
+			final List<N> path = new LinkedList<>();			
+			do {
+				path.add(0, node);
+				node = bfsSupport.getNodeParent(node);
+			} while (node != null);
+			return path;
 		}
 	}
 	
