@@ -91,10 +91,9 @@ public class GraphImpl<N> implements Graph<N> {
 		} else {
 			final List<N> path = new LinkedList<>();			
 			do {
-				path.add(target);
+				path.add(0, target);
 				target = bfsSupport.getNodeParent(target);
 			} while (target != null);
-			Collections.reverse(path);
 			return path;
 		}
 	}
